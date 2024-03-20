@@ -166,7 +166,7 @@ private RemoteWebDriver driver;
     public void homepagehighlights() throws InterruptedException
     {
     	 driver.findElement(By.xpath("(//a[text()='HIGHLIGHTS'])[1]")).click();
-    	 driver.findElement(By.xpath("//button[text()='Neuroanatomy Histology']")).click();
+    	 driver.findElement(By.xpath("//button[text()='Histopathology']")).click();
 		  scroll();
 		 driver.findElement(By.xpath("//button[text()='Computational']")).click();
 		  scroll();
