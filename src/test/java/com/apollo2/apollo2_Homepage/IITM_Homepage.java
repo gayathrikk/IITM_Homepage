@@ -268,23 +268,28 @@ private RemoteWebDriver driver;
 		  
 		  System.out.println("Homepage Gallery valiation is done");
     }
-    @Test(priority=9)
+   @Test(priority=9)
 
     public void Homecontacts() throws InterruptedException  {
 
 		 driver.findElement(By.xpath("(//a[text()='CONTACTS'])[1]")).click();
 		 scroll();
-		 driver.findElement(By.xpath("//input[@id='fname']")).sendKeys("software team");
+		 driver.switchTo().frame(0);
+		 driver.findElement(By.xpath("(//input[@name='Name'])[1]")).sendKeys("software");
 		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("//input[@type='email']")).sendKeys("softwareteam@htic.iitm.ac.in");
+		 driver.findElement(By.xpath("(//input[@name='Name'])[2]")).sendKeys("Team");
 		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("//input[@id='phone']")).sendKeys("123456789");
+		 driver.findElement(By.xpath("//input[@name='Email']")).sendKeys("softwareteam@htic.iitm.ac.in");
 		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("//textarea[@name='msg']")).sendKeys("Testing purpose" );
+		 driver.findElement(By.xpath("//input[@id='PhoneNumber']")).sendKeys("9516765121");
 		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("//input[@type='submit']")).click();
+		 driver.findElement(By.xpath("//textarea[@id='MultiLine-arialabel']")).sendKeys("Testing purpose" );
+		 Thread.sleep(1000);
+		 driver.findElement(By.xpath("(//button[@value='submit'])[1]")).click();
 		 Thread.sleep(2000);
-		 
+		 WebElement submitmessage=driver.findElement(By.xpath("//span[@class='alignCenter infoCont thankyouMsgText']"));
+		 String Sumbitmessage=submitmessage.getText();
+		 System.out.println("Submitted message is = "+Sumbitmessage);
 		 System.out.println("Homepage contacts validation is done ");
 		  
 		  
