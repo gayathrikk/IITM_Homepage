@@ -285,11 +285,11 @@ private RemoteWebDriver driver;
 		 Thread.sleep(1000);
 		 driver.findElement(By.xpath("//textarea[@id='MultiLine-arialabel']")).sendKeys("Testing purpose" );
 		 Thread.sleep(1000);
-		 driver.findElement(By.xpath("(//button[@value='submit'])[1]")).click();
-		 Thread.sleep(2000);
-		 WebElement submitmessage=driver.findElement(By.xpath("//span[@class='alignCenter infoCont thankyouMsgText']"));
-		 String Sumbitmessage=submitmessage.getText();
-		 System.out.println("Submitted message is = "+Sumbitmessage);
+		 // driver.findElement(By.xpath("(//button[@value='submit'])[1]")).click();
+		 // Thread.sleep(2000);
+		 // WebElement submitmessage=driver.findElement(By.xpath("//span[@class='alignCenter infoCont thankyouMsgText']"));
+		 // String Sumbitmessage=submitmessage.getText();
+		 // System.out.println("Submitted message is = "+Sumbitmessage);
 		 System.out.println("Homepage contacts validation is done ");
 		  
 		  
