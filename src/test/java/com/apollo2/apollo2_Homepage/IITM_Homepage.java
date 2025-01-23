@@ -43,87 +43,56 @@ private RemoteWebDriver driver;
    		{
 	   
 	   String heading1="Sudha Gopalakrishnan Brain Centre";
-	   WebElement text1=driver.findElement(By.xpath("//h2[@class='head']"));
+	   WebElement text1=driver.findElement(By.xpath("//h1[@class='head']"));
 	   String Heading1 =text1.getText();
 	   System.out.println("Head1:"+Heading1);
 	   Assert.assertEquals(Heading1, heading1, "Heading1 are not equal");
 	   
 	   String heading2="Indian Institute of Technology Madras";
-	   WebElement text2=driver.findElement(By.xpath("(//h2[@class='head']//following::h5)[1]"));
+	   WebElement text2=driver.findElement(By.xpath("(//h1[@class='head']//following::h5)[1]"));
 	   String Heading2 =text2.getText();
 	   System.out.println("Head2:"+Heading2);
 	   Assert.assertEquals(Heading2, heading2, "Heading2 are not equal");
 	   
-	   String heading3="Brain Research through Advanced Integrated Neuroanatomy (BRAIN)";
-	   WebElement text3=driver.findElement(By.xpath("//h1[@class='Brain-title']"));
-	   String Heading3 =text3.getText();
-	   System.out.println("Head3:"+Heading3);
-	   Assert.assertEquals(Heading3, heading3, "Heading3 are not equal");
-	   
-	   String paragraph1="The home of brain research generating globally sought after data and technology solutions.";
-	   WebElement text4=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::p)[1]"));
-	   String Paragraph1=text4.getText();
-	   System.out.println("Paragraph 1:"+Paragraph1);
-	   Assert.assertEquals(Paragraph1, paragraph1, "Paragraph 1 are not equal");
-	   
-	   String heading4="About";
-	   WebElement text5=driver.findElement(By.xpath("//h2[text()=' About ']"));
-	   String Heading4 =text5.getText();
-	   System.out.println("Head4:"+Heading4);
-	   Assert.assertEquals(Heading4, heading4, "Heading4 are not equal");
-	   
-	   String paragraph2="The Sudha Gopalakrishnan Brain Centre (SGBC) at the Indian Institute of Technology Madras (IIT Madras) is a multidisciplinary research and development centre focused on brain research. The centre has been set up as a unique amalgamation of diverse disciplines from Medicine, Neuroscience, Engineering, where the brain research is through advanced integrated neuroanatomy with the interface between neuroscience and engineering.";
-	   WebElement text6=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::p)[2]"));
-	   String Paragraph2=text6.getText();
-	   System.out.println("Paragraph 2:"+Paragraph2);
-	   Assert.assertEquals(Paragraph2, paragraph2, "Paragraph 2 are not equal");
-	   
-	   String paragraph3="SGBC has developed a high throughput computational and experimental pipeline to study cellular architecture, connectivity and molecular architecture in human brains through multiresolution, multimodal imaging, from cellular resolution histology to structural MRI... This effort is supported by the Office of the Principal Scientific Advisor, Government of India along with contributions from Mr. Kris Gopalakrishnan, Co-founder, Infosys and Distinguished Alumnus of IITM.";
-	   WebElement text7=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::p)[3]"));
-	   String Paragraph3=text7.getText();
-	   System.out.println("Paragraph 3:"+Paragraph3);
-	   Assert.assertEquals(Paragraph3, paragraph3, "Paragraph 3 are not equal");
-	   
-	   String paragraph4="The integrated histology-imaging-compute pipeline at IIT Madras generates petabyte sized image data volumes, from postmortem brains, neurotypical and disease conditions. The centre leverages expertise across-IITM, national, and international collaborations for results that would have significant impact on medicine, science and engineering.";
-	   WebElement text8=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::p)[4]"));
-	   String Paragraph4=text8.getText();
-	   System.out.println("Paragraph 4:"+Paragraph4);
-	   Assert.assertEquals(Paragraph4, paragraph4, "Paragraph 4 are not equal");
-	   
-	   String heading5="Brain Research through Advanced Integrated Neuroanatomy";
-	   WebElement text9=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::h5)[1]"));
-	   String Heading5 =text9.getText();
-	   System.out.println("Head5:"+Heading5);
-	   Assert.assertEquals(Heading5, heading5, "Heading5 are not equal");
-	   
-	   String paragraph5="Whole human brain neuro mapping at cellular resolution.";
-	   WebElement text10=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::p)[5]"));
-	   String Paragraph5=text10.getText();
-	   System.out.println("Paragraph 5:"+Paragraph5);
-	   Assert.assertEquals(Paragraph5, paragraph5, "Paragraph 5 are not equal");
-	   
-	   String heading6="ADDRESS";
-	   WebElement text11=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::h5)[2]"));
-	   String Heading6 =text11.getText();
-	   System.out.println("Head6:"+Heading6);
-	   Assert.assertEquals(Heading6, heading6, "Heading6 are not equal");
-	   
-	   String paragraph6="Sudha Gopalakrishnan BRAIN Centre\n"
-	   		+ "Stilt floor, NAC-1 Building\n"
-	   		+ "IIT Madras, Chennai - 600036, India\n"
-	   		+ "Email: contact@humanbrainiitm.in\n"
-	   		+ "Phone: +91-44-2257-8892";
-	   WebElement text12=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::p)[6]"));
-	   String Paragraph6=text12.getText();
-	   System.out.println("Paragraph 6:"+Paragraph6);
-	   Assert.assertEquals(Paragraph6, paragraph6, "Paragraph 6 are not equal");
-	   
-	   String paragraph7="© All Rights Reserved. Designed by HTML Codex";
-		   WebElement text13=driver.findElement(By.xpath("(//h1[@class='Brain-title']//following::p)[7]"));
-		   String Paragraph7=text13.getText();
-		   System.out.println("Paragraph 7:"+Paragraph7);
-		   Assert.assertEquals(Paragraph7, paragraph7, "Paragraph 7 are not equal");
-		   
+	   String expectedText = "The Sudha Gopalakrishnan Brain Centre of IIT Madras operates a world-class high-throughput multimodal whole-brain histology-imaging-compute pipeline, to digitize and study human brains at unprecedented high-resolution and scale. The centre leverages expertise across IITM, national, and international collaborations, and aims to become a globally leading R&D centre for human brain research with transformative impact in neuroscience and neurotechnologies.";
+
+	   WebElement paragraphElement = driver.findElement(By.xpath("//p[@class='footer-data text-justify']"));
+	   String actualText = paragraphElement.getText();
+	   System.out.println("Extracted Text: " + actualText);
+
+	   // Validating the extracted text
+	   Assert.assertEquals(actualText, expectedText, "Extracted text does not match the expected text");
+	   String expectedText1 = "DHARANI: A 3D Developing Human-brain Atlas Resource to Advance Neuroscience Internationally";
+	   String expectedUrl = "https://brainportal.humanbrain.in";
+
+	   // Locate the anchor element using XPath
+	   String expectedText11 = "DHARANI: A 3D Developing Human-brain Atlas Resource to Advance Neuroscience Internationally";
+	    String expectedUrl1 = "https://brainportal.humanbrain.in";
+
+	    // Locate the anchor element using XPath
+	    WebElement linkElement = driver.findElement(By.xpath("//a[@class='blinker-link']"));
+
+	    // Extract the text of the link
+	    String actualText1 = linkElement.getText();
+	    System.out.println("Link Text: " + actualText1);
+
+	    // Extract the href attribute of the link
+	    String actualUrl = linkElement.getAttribute("href").trim();
+	    System.out.println("Link URL: " + actualUrl);
+
+	    // Normalize the URL (remove trailing slash if necessary)
+	    if (actualUrl.endsWith("/")) {
+	        actualUrl = actualUrl.substring(0, actualUrl.length() - 1);
+	    }
+
+	    // Validate the text of the link
+	    Assert.assertEquals(actualText1, expectedText11, "Link text does not match the expected text");
+
+	    // Validate the href attribute of the link
+	    Assert.assertEquals(actualUrl, expectedUrl1, "Link URL does not match the expected URL");
+
+	    System.out.println("Link validation is successful!");
+	
 		   System.out.println("Homepage  content validation is done");
    }
     @Test(priority=3)
@@ -158,6 +127,8 @@ private RemoteWebDriver driver;
 		  
 		  driver.findElement(By.xpath("//button[text()='Wet Lab Team']")).click();
 		  scroll();
+		  driver.findElement(By.xpath("//button[text()='Internship']")).click();
+		  scroll();
 		  
 		  System.out.println("Homepage people validation is done");
 
@@ -166,109 +137,49 @@ private RemoteWebDriver driver;
     public void homepagehighlights() throws InterruptedException
     {
     	 driver.findElement(By.xpath("(//a[text()='HIGHLIGHTS'])[1]")).click();
-    	 driver.findElement(By.xpath("//button[text()='Histopathology']")).click();
 		  scroll();
 		 driver.findElement(By.xpath("//button[text()='Computational']")).click();
 		  scroll();
+		  driver.findElement(By.xpath("//a[text()='View the application']")).click();
+		  
 		 driver.findElement(By.xpath("//button[text()='Technology']")).click();
 		  scroll();
-		 driver.findElement(By.xpath("//button[text()='R&D Publications']")).click();
-		  scroll(); 
-		  
+		 
 		  System.out.println("Homepage Highlights validation is done");
-    	 
     	 
     }
 
-//    private void Homepageproject() throws InterruptedException {
-//    	  driver.findElement(By.xpath("(//a[text()='PROJECT'])[1]")).click();
-//    	  driver.findElement(By.xpath("//a[@data-target='#HDviewer']")).click();
-//    	  Thread.sleep(9000);
-//    	  driver.findElement(By.xpath("(//button[@type='button'])[3]")).click();
-//    	  Thread.sleep(2000);
-//    	  driver.findElement(By.xpath("//a[@data-target='#atlascreator']")).click();
-//    	  Thread.sleep(7000);
-//    	  driver.findElement(By.xpath("(//button[@type='button'])[4]")).click();
-//    	  Thread.sleep(2000);
-//    	  driver.findElement(By.xpath("//a[@data-target='#cellannotation']")).click();
-//    	  Thread.sleep(9000);
-//    	  driver.findElement(By.xpath("(//button[@type='button'])[5]")).click();
-//    	  Thread.sleep(2000);
-//    	  driver.findElement(By.xpath("//a[@data-target='#visualizer']")).click();
-//    	  Thread.sleep(5000);
-//    	  driver.findElement(By.xpath("(//button[@type='button'])[6]")).click();
-//    	  Thread.sleep(2000);
-//    	  scroll();
-//		  Thread.sleep(2000);
-//		  driver.findElement(By.xpath("//a[@data-target='#registration']")).click();
-//    	  Thread.sleep(7000);
-//    	  driver.findElement(By.xpath("(//button[@type='button'])[7]")).click();
-//    	  Thread.sleep(2000);
-//    	  driver.findElement(By.xpath("//a[@data-target='#seriesviewer']")).click();
-//    	  Thread.sleep(6000);
-//    	  driver.findElement(By.xpath("(//button[@type='button'])[8]")).click();
-//    	  Thread.sleep(2000);
-//		  
-//		  	  
-//    }
     @Test(priority=5)
-    public void Dataportal() throws InterruptedException{
-    
-    driver.findElement(By.xpath("((//a[text()='NEWS & EVENTS'])//preceding::a[1])[1]")).click();
-    Thread.sleep(2000);
-    windowhandle();
-    System.out.println("Homepage Dataportal validation is done ");
-    
+    public void homepagepublications() throws InterruptedException
+    {
+    	
+    	 driver.findElement(By.xpath("(//a[text()='PUBLICATIONS'])[1]")).click();
+		  scroll();
+    	 driver.findElement(By.xpath("//button[text()='2024']")).click();
+    	 driver.findElement(By.xpath("//button[text()='2023']")).click();
+    	 driver.findElement(By.xpath("//button[text()='2022']")).click();
+    	
+    	 driver.findElement(By.xpath("(//p[@class='pubTitle'])[20]")).click();
+    	    	 
     }
+    
+       
     @Test(priority=6)
 
     public void Homenewsandevents() throws InterruptedException {
-    	  driver.findElement(By.xpath("(//a[text()='NEWS & EVENTS'])[1]")).click();
-    	  scroll();
-		  Thread.sleep(2000);
-		  
-		  System.out.println("Homepage News and Events validation is done ");
-    }
-    @Test(priority=7)
-
-    public void Homecareer()  throws InterruptedException {
-    	 driver.findElement(By.xpath("(//a[text()='CAREER'])[1]")).click();
-    	 Thread.sleep(2000);
-    	 driver.findElement(By.xpath("(//a[text()='Apply'])[1]")).click();
-    	 Thread.sleep(3000);
-    	 windowhandle();
-    	 driver.findElement(By.xpath("(//a[text()='Apply'])[2]")).click();
-    	 Thread.sleep(3000);
-    	 windowhandle();
-    	 driver.findElement(By.xpath("(//a[text()='Apply'])[3]")).click();
-    	 Thread.sleep(3000);
-    	 windowhandle();
-    	 driver.findElement(By.xpath("(//a[text()='Apply'])[4]")).click();
-    	 Thread.sleep(3000);
-    	 windowhandle();
-    	 driver.findElement(By.xpath("(//a[text()='Apply'])[5]")).click();
-    	 Thread.sleep(3000);
-    	 windowhandle();
-    	 driver.findElement(By.xpath("(//a[text()='Apply'])[6]")).click();
-    	 Thread.sleep(3000);
-    	 windowhandle();
-		  //Homepage.scroll();
-		  Thread.sleep(2000);
-		  
-		  System.out.println("Homepage career validation is done ");
-		  
-    }
-    @Test(priority=8)
-    
-    public void homegallery() throws InterruptedException
-    {
-    	driver.findElement(By.xpath("(//a[text()='GALLERY'])[1]")).click();
+  	  driver.findElement(By.xpath("(//a[text()='NEWS & EVENTS'])[1]")).click();
   	  scroll();
 		  Thread.sleep(2000);
+		  driver.findElement(By.xpath("//button[text()='2024']")).click();
+		  scroll();
+	    	 driver.findElement(By.xpath("//button[text()='2023']")).click();
+	    	 scroll();
+	    	 driver.findElement(By.xpath("//button[text()='2022']")).click();
+	    	 scroll();
 		  
-		  System.out.println("Homepage Gallery valiation is done");
-    }
-   @Test(priority=9)
+		  System.out.println("Homepage News and Events validation is done ");
+  }
+    @Test(priority=7)
 
     public void Homecontacts() throws InterruptedException  {
 
@@ -285,16 +196,15 @@ private RemoteWebDriver driver;
 		 Thread.sleep(1000);
 		 driver.findElement(By.xpath("//textarea[@id='MultiLine-arialabel']")).sendKeys("Testing purpose" );
 		 Thread.sleep(1000);
-		 // driver.findElement(By.xpath("(//button[@value='submit'])[1]")).click();
-		 // Thread.sleep(2000);
-		 // WebElement submitmessage=driver.findElement(By.xpath("//span[@class='alignCenter infoCont thankyouMsgText']"));
-		 // String Sumbitmessage=submitmessage.getText();
-		 // System.out.println("Submitted message is = "+Sumbitmessage);
-		 System.out.println("Homepage contacts validation is done ");
+		// driver.findElement(By.xpath("(//button[@value='submit'])[1]")).click();
+		// Thread.sleep(2000);
+		// WebElement submitmessage=driver.findElement(By.xpath("//span[@class='alignCenter infoCont thankyouMsgText']"));
+		// String Sumbitmessage=submitmessage.getText();
+		// System.out.println("Submitted message is = "+Sumbitmessage);
+		// System.out.println("Homepage contacts validation is done ");
 		  
-		  
-    }
-    
+  }
+   
     private void scrollToBottom(WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
