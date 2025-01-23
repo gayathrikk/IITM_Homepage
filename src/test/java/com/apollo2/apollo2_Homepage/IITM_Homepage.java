@@ -140,7 +140,7 @@ private RemoteWebDriver driver;
 		  scroll();
 		 driver.findElement(By.xpath("//button[text()='Computational']")).click();
 		  scroll();
-		  driver.findElement(By.xpath("//a[text()='View the application']")).click();
+		 
 		  
 		 driver.findElement(By.xpath("//button[text()='Technology']")).click();
 		  scroll();
