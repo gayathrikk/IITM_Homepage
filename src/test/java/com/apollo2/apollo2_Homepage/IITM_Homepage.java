@@ -159,7 +159,7 @@ private RemoteWebDriver driver;
     	 driver.findElement(By.xpath("//button[text()='2023']")).click();
     	 driver.findElement(By.xpath("//button[text()='2022']")).click();
     	
-    	 driver.findElement(By.xpath("(//p[@class='pubTitle'])[20]")).click();
+    	//driver.findElement(By.xpath("(//p[@class='pubTitle'])[20]")).click();
     	    	 
     }
     
